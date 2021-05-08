@@ -1,0 +1,73 @@
+/*#############################
+# During Loading
+#############################*/
+.loadgif {
+    position: absolute;
+    top: 35%;
+    left: 0; 
+    right: 0; 
+    z-index: 1005;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 100px; /* Need a specific value to work */
+}
+
+#loader-wrapper .loader-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: #191F26;
+    z-index: 1000;
+}
+
+
+#loader-wrapper .loader-section.section-left {
+    left: 0;
+}
+ 
+#loader-wrapper .loader-section.section-right {
+    right: 0;
+}
+#loader {
+    z-index: 1001; /* anything higher than the loader sections*/
+}
+
+/*#############################
+# After Loading Completes
+#############################*/
+.loaded #loader {
+    opacity: 0;
+    -webkit-transition: all 2s ease-out;
+            transition: all 2s ease-out;
+}
+.loaded #loader-wrapper {
+    visibility: hidden;
+    -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+            transform: translateY(-100%);
+
+    -webkit-transition: all 2s 4s ease-out;
+            transition: all 2s 4s ease-out;
+}
+.loaded .loadgif {
+    visibility: hidden;
+}
+.loaded #loader-wrapper .loader-section.section-left {
+    -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(-100%);  /* IE 9 */
+    transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
+}
+ 
+.loaded #loader-wrapper .loader-section.section-right {
+    -webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(100%);  /* IE 9 */
+    transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
+}
+
+.loaded #loader-wrapper .loader-section.section-right,
+.loaded #loader-wrapper .loader-section.section-left {
+    -webkit-transition: all 2s 2s ease-out;
+            transition: all 2s 2s ease-out;
+}
